@@ -60,11 +60,11 @@ def main():
                 clippings_by_book[book_info] = [clipping]
 
         for book_info, clippings_list in clippings_by_book.items():
-            st.header(book_info)
-            for idx, clipping in enumerate(clippings_list, start=1):
-                formatted_clipping = format_clipping(
-                    clipping, include_location)
-                st.write(f"{formatted_clipping}")
+            with st.expander(book_info):
+                for idx, clipping in enumerate(clippings_list, start=1):
+                    formatted_clipping = format_clipping(
+                        clipping, include_location)
+                    st.write(f"{formatted_clipping}")
 
 
 if __name__ == '__main__':
